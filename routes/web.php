@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubCategory\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
 
@@ -19,8 +20,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['admin','auth'])->group(function () {
+Route::middleware(['admin', 'auth'])->group(function () {
     Route::resource('/category', CategoryController::class);
+    Route::get('/subcategory', [SubCategoryController::class, 'index'])->name('subcategory.index');
+    Route::get('/subcategory/create', [SubCategoryController::class, 'create'])->name('subcategory.create');
+    Route::post('/subcategory', [SubCategoryController::class, 'store'])->name('subcategory.store');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -27,6 +27,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                         <a class="nav-link" href="#">Products</a>
                         <a class="nav-link" href="{{route('category.index')}}">Categories</a>
+                        <a class="nav-link" href="{{route('subcategory.index')}}">Categories</a>
                         <a class="nav-link" href="#">Transactions</a>
                     </div>
                 </div>

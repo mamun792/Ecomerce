@@ -50,7 +50,7 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return $this->categoryService->find($id);
     }
 
     /**
@@ -74,6 +74,11 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try{
+            $this->categoryService->delete($id);
+            return response()->json(['success' => 'Category deleted successfully'], 200);
+          }catch(\Exception $e){
+            return response()->json(['error' => $e->getMessage()], 400);
+          }
     }
 }
