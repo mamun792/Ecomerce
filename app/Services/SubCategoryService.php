@@ -45,4 +45,9 @@ class SubCategoryService implements SubCategoryServiceInterface
         $image->move(public_path('image/SubCategory'), $imageName);
         return $imageName;
     }
+
+    public function Allproduct()
+    {
+        return $this->subCategoryRepository->Allproduct();
+    }
 }

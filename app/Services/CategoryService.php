@@ -57,4 +57,14 @@ class CategoryService implements CategoryServiceInterface
         move_uploaded_file($image->getPathname(), $imagePath);
         return $file_name;
     }
+
+    public function Allproduct()
+    {
+        return $this->categoryRepository->Allproduct();
+    }
+
+    public function getSubcategories(array $data)
+    {
+        return $this->categoryRepository->getSubcategories($data);
+    }
 }

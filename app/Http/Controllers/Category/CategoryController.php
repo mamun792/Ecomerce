@@ -81,4 +81,15 @@ class CategoryController extends Controller
             return response()->json(['error' => $e->getMessage()], 400);
           }
     }
+
+    public function getSubcategories(Request $request)
+    {
+        try{
+            $data = $request->all();
+          return  $subcategories = $this->categoryService->getSubcategories($data);
+            return response()->json(['success' => $subcategories], 200);
+          }catch(\Exception $e){
+            return response()->json(['error' => $e->getMessage()], 400);
+          }
+    }
 }

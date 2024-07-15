@@ -24,4 +24,9 @@ class SubCategoryRepository implements SubCategoryRepositoryInterface
     {
         return SubCategories::find($id);
     }
+
+    public function Allproduct()
+    {
+        return SubCategories::all();
+    }
 }

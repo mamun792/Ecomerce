@@ -13,4 +13,8 @@ interface CategoryRepositoryInterface
     public function delete($id);
 
     public function find($id);
+
+    public function Allproduct();
+
+    public function getSubcategories(array $data);
 }

@@ -25,9 +25,9 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        <a class="nav-link" href="#">Products</a>
+                        <a class="nav-link" href="{{route('product.index')}}">Products</a>
                         <a class="nav-link" href="{{route('category.index')}}">Categories</a>
-                        <a class="nav-link" href="{{route('subcategory.index')}}">Categories</a>
+                        <a class="nav-link" href="{{route('subcategory.index')}}">SubCategories</a>
                         <a class="nav-link" href="#">Transactions</a>
                     </div>
                 </div>

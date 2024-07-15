@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 use App\Models\Categories;
+use App\Models\SubCategories;
 
 class CategoryRepository implements CategoryRepositoryInterface
 {
@@ -29,5 +30,15 @@ class CategoryRepository implements CategoryRepositoryInterface
     public function find($id)
     {
         return Categories::find($id);
+    }
+
+    public function Allproduct()
+    {
+        return Categories::all();
+    }
+
+    public function getSubcategories(array $data)
+    {
+        return SubCategories::where('category_id', $data['category_id'])->get();
     }
 }
