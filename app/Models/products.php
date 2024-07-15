@@ -18,4 +18,20 @@ class products extends Model
         'slug',
         'quantity'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Categories::class);
+    }
+
+    public function subcategory()
+    {
+        return $this->belongsTo(SubCategories::class, 'sub_category_id');
+    }
+
+    public function transactions()
+    {
+        return $this->belongsToMany(transaction::class);
+    }
+    
 }

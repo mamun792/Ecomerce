@@ -77,4 +77,9 @@ class ProductServices implements ProductServicesInterface
         return $file_name;
     }
 
+    public function withProductSubCategory($perpage,$search=null)
+    {
+        return $this->productRepositories->withProductSubCategory($perpage,$search);
+    }
+
 }

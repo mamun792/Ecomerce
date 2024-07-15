@@ -15,4 +15,16 @@ class SubCategories extends Model
         'slug',
         'image'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Categories::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(products::class);
+    }
+
+    
 }

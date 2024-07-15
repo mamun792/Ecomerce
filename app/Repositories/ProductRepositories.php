@@ -33,4 +33,18 @@ class ProductRepositories implements ProductRepositoriesInterface
     {
         return Products::where('name', 'like', '%' . $data . '%')->get();
     }
+
+    public function withProductSubCategory($perpage, $search = null)
+    {
+       $query= Products::select('id', 'name', 'price', 'image', 'category_id', 'sub_category_id', 'quantity')
+           ->with(['category:id,name', 'subcategory:id,name']);
+
+        if($search){
+            $query= Products::select('id', 'name', 'price', 'image', 'category_id', 'sub_category_id', 'quantity')
+                ->with(['category:id,name', 'subcategory:id,name'])
+                ->where('name', 'like', '%' . $search . '%');
+                
+        }
+        return $query->paginate($perpage);
+    }
 }

@@ -15,4 +15,6 @@ interface ProductRepositoriesInterface
     public function delete($id);
 
     public function search($data);
+
+    public function withProductSubCategory($perpage);
 }
