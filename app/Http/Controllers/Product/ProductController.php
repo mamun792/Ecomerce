@@ -72,7 +72,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+       
+        $this->productServices->update($request->all(),$id);
+        return response()->json(['success' => 'Product updated successfully']);
     }
 
     /**
@@ -80,6 +82,8 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
+         $this->productServices->delete($id);
+         return response()->json(['success' => 'Product deleted successfully']);
     }
 }

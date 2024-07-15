@@ -42,6 +42,12 @@ class ProductServices implements ProductServicesInterface
 
     public function update(array $data, $id)
     {
+        if (isset($data['image'])) {
+            $file=$data['image'];
+            $file_name =   $fileName = $this->uploadImage($file);
+            $data['image'] = $file_name;
+        }
+         //Log::info($data);
         return $this->productRepositories->update($data, $id);
     }
 
@@ -60,6 +66,14 @@ class ProductServices implements ProductServicesInterface
         $file_name = time() . '.' . $image->getClientOriginalExtension();
         $imagePath = public_path('image/product') . '/' . $file_name;
         move_uploaded_file($image->getPathname(), $imagePath);
+        // delete old image if exist
+        if (isset($data['image'])) {
+            $oldImagePath = public_path('image/product') . '/' . $data['image'];
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
+            }
+        }
+
         return $file_name;
     }
 
