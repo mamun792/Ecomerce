@@ -32,6 +32,8 @@
 #5. The application has a simple cart functionality
 #6. The application has a simple Tranjection functionality
 
+https://github.com/softexel/singlevendor/invitations
+
 #Enjoy the application
 #Thank you
 
